@@ -1,0 +1,32 @@
+.custom-navbar {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    background-color: lightcoral;
+    height: 50px;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 100;
+}
+
+.site-title {
+    font-weight: 600;
+    font-size: 40px;
+    margin-right: 25px;
+    margin-left: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link {
+    font-size: 20px;
+    margin-right: 25px;
+}
+
+.list-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
