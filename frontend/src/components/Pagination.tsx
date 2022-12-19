@@ -2,7 +2,7 @@ import Pagination from 'react-bootstrap/Pagination';
 import { useLocation } from "wouter";
 
 export default function ListPagination(props: any) {
-    const [, setLocation] = useLocation();
+    const [, navigate] = useLocation();
 
     function handlePaginate(change: string) {
         const page = parseInt(props.currentPage)
@@ -10,13 +10,13 @@ export default function ListPagination(props: any) {
 
         switch(change) {
             case "first":
-                setLocation("/list/1")
+                navigate("/list/1")
                 break
             case "next":
-                setLocation(`/list/${page + 1}`)
+                navigate(`/list/${page + 1}`)
                 break
             case "prev":
-                setLocation(`/list/${page - 1}`)
+                navigate(`/list/${page - 1}`)
                 break
             default:
                 break
