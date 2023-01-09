@@ -7,14 +7,19 @@ from .errors import (
     NOT_FOUND,
     INTERNAL_SERVER_ERROR
 )
-from .utilities import format_genre, validate_sort_request
+from .utilities import (
+    DEFAULT_GENRE_ARGS,
+    DEFAULT_SORT_ARGS,
+    format_genre, 
+    validate_sort_request
+)
 
 # Database
 db = TinyDB('records.db')
 
 Movie = Query()
 
-
+# get movie given movie title
 def get_movie_handler(name):
     formatted_name = name.replace("_", " ")
     record = db.search(Movie.movie_name == formatted_name)
@@ -23,15 +28,14 @@ def get_movie_handler(name):
     return NOT_FOUND
 
 
+# get movie list when sorting by column (rating, year, etc.)
 def get_sorted_movies_handler():
     try:
         args = request.args
         if not validate_sort_request(args):
             return INVALID_REQUEST
 
-        column = args.get("column")
-        limit = args.get("limit")
-        offset = args.get("offset")
+        column, limit, offset = [args.get(arg) for arg in DEFAULT_SORT_ARGS]
         should_reverse = not args.get("desc") == "false"
 
         records = sorted(db.all(), key=itemgetter(column), reverse=should_reverse)
@@ -45,11 +49,11 @@ def get_sorted_movies_handler():
         return INTERNAL_SERVER_ERROR
 
 
+# get movie list by genre
 def get_movies_by_genre_handler():
     try:
         args = request.args
-        genres = args.get("selected")
-        limit = args.get("limit")
+        [genres, limit] = [args.get(arg) for arg in DEFAULT_GENRE_ARGS]
 
         formatted_genres = format_genre(genres)
         records = db.search(Movie.genre.any(formatted_genres))

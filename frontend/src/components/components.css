@@ -1,43 +1,43 @@
 .custom-navbar {
-    position: sticky;
-    top: 0;
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    background-color: lightcoral;
-    height: 50px;
-    align-items: center;
-    margin-bottom: 20px;
-    z-index: 100;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  background-color: lightcoral;
+  height: 50px;
+  align-items: center;
+  margin-bottom: 20px;
+  z-index: 100;
 }
 
 .site-title {
-    font-weight: 600;
-    font-size: 40px;
-    margin-right: 25px;
-    margin-left: 10px;
-    text-decoration: none;
-    color: black;
+  font-weight: 600;
+  font-size: 40px;
+  margin-right: 25px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: black;
 }
 
 .nav-link {
-    font-size: 20px;
-    margin-right: 25px;
+  font-size: 20px;
+  margin-right: 25px;
 }
 
 .list-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .filters-container {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .filter-select {
-    background-color: lightcoral;
-    border-color: lightcoral;
-    color: black;
+  background-color: lightcoral;
+  border-color: lightcoral;
+  color: black;
 }
